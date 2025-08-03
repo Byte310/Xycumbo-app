@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principais Cidades Moçambanas do Norte 2025-2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            color: rgba(255, 255, 255, 0.95);
+            background-color: #000;
+        }
+        
+        .container {
+            height: 100vh;
+            scroll-snap-type: y mandatory;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            position: relative;
+        }
+        
+        .card {
+            height: 100vh;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            transition: transform 0.5s ease-out;
+        }
+        
+        .card:hover .card-bg {
+            transform: scale(1.05);
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+            z-index: 0;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 80%;
+            padding: 2rem;
+        }
+        
+        .city-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .country {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .poetic-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-style: italic;
+            max-width: 600px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+        
+        .scroll-indicator svg {
+            width: 40px;
+            height: 40px;
+            fill: rgba(255, 255, 255, 0.8);
+        }
+        
+        .dots-nav {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background-color: white;
+            transform: scale(1.3);
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .city-name {
+                font-size: 3rem;
+            }
+            
+            .country {
+                font-size: 1.2rem;
+            }
+            
+            .poetic-text {
+                font-size: 1rem;
+            }
+            
+            .dots-nav {
+                right: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .city-name {
+                font-size: 2.5rem;
+            }
+            
+            .content {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="card" id="riga">
+            <div class="card-bg" style="background-image: url('imagens/riga_letonia.jpg');"></div>
+            <div class="overlay"></div>
+            <div class="content">
+                <h1 class="city-name">Riga</h1>
+                <h2 class="country">Letônia</h2>
+                <p class="poetic-text">Entre torres góticas e fachadas Art Nouveau, Riga desperta como uma musa báltica adormecida, onde o âmbar e a neve dançam sob a luz do norte em uma sinfonia de estações.</p>
+            </div>
+            <div class="scroll-indicator" onclick="scrollToNext('dubrovnik')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                </svg>
+            </div>
+        </section>
+        
+        <section class="card" id="dubrovnik">
+            <div class="card-bg" style="background-image: url('imagens/dubrovnik_croacia.jpg');"></div>
+            <div class="overlay"></div>
+            <div class="content">
+                <h1 class="city-name">Dubrovnik</h1>
+                <h2 class="country">Croácia</h2>
+                <p class="poetic-text">Muralhas de pedra abraçam o azul infinito do Adriático, enquanto Dubrovnik, banhada em luz dourada, sussurra histórias medievais ao mar que beija suas praias de mármore.</p>
+            </div>
+            <div class="scroll-indicator" onclick="scrollToNext('chemnitz')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                </svg>
+            </div>
+        </section>
+        
+        <section class="card" id="chemnitz">
+            <div class="card-bg" style="background-image: url('imagens/chemnitz_alemanha.jpg');"></div>
+            <div class="overlay"></div>
+            <div class="content">
+                <h1 class="city-name">Chemnitz</h1>
+                <h2 class="country">Alemanha</h2>
+                <p class="poetic-text">Na encruzilhada entre passado industrial e futuro criativo, Chemnitz pulsa como coração cultural da Europa em 2025, onde a arte transforma o concreto em telas vivas de possibilidades.</p>
+            </div>
+            <div class="scroll-indicator" onclick="scrollToNext('riga')">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                </svg>
+            </div>
+        </section>
+    </div>
+    
+    <div class="dots-nav">
+        <div class="dot active" onclick="scrollToSection('riga')"></div>
+        <div class="dot" onclick="scrollToSection('dubrovnik')"></div>
+        <div class="dot" onclick="scrollToSection('chemnitz')"></div>
+    </div>
+    
+    <script>
+        // Função para rolar para a próxima seção
+        function scrollToNext(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Função para rolar para uma seção específica
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Atualizar navegação de pontos ao rolar
+        const container = document.querySelector('.container');
+        const sections = document.querySelectorAll('.card');
+        const dots = document.querySelectorAll('.dot');
+        
+        container.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (container.scrollTop >= (sectionTop - sectionHeight / 3)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (sections[index].getAttribute('id') === current) {
+                    dot.classList.add('active');
+                }
+            });
+        });
+        
+        // Adicionar suporte para deslizar no mobile
+        let touchStartY = 0;
+        let touchEndY = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            touchEndY = e.changedTouches[0].clientY;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const currentSection = document.querySelector('.dot.active');
+            const currentIndex = Array.from(dots).indexOf(currentSection);
+            
+            if (touchStartY > touchEndY + 50) {
+                // Deslizar para baixo
+                const nextIndex = (currentIndex + 1) % sections.length;
+                scrollToSection(sections[nextIndex].getAttribute('id'));
+            } else if (touchStartY < touchEndY - 50) {
+                // Deslizar para cima
+                const prevIndex = (currentIndex - 1 + sections.length) % sections.length;
+                scrollToSection(sections[prevIndex].getAttribute('id'));
+            }
+        }
+    </script>
+</body>
+</html>
